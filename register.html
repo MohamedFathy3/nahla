@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إنشاء حساب</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/login/register.css" />
+</head>
+<body>
+  <div class="signup-container">
+    <div class="step-indicator">
+      <button class="step active" onclick="showStep(1)">
+        <span class="circle">1</span>
+        <span class="label">بيانات الشخصية</span>
+      </button>
+      <button class="step" onclick="showStep(2)">
+        <span class="circle">2</span>
+        <span class="label">بيانات المتجر</span>
+      </button>
+      <button class="step" onclick="showStep(3)">
+        <span class="circle">3</span>
+        <span class="label">وصف المتجر</span>
+      </button>
+    </div>
+
+    <div class="form-wrapper">
+      <!-- Step 1 -->
+      <form id="step1" class="form-content">
+        <h2>إنشاء حساب</h2>
+        <p>مرحباً بعودتك! الرجاء إدخال التفاصيل الخاصة بك</p>
+        <input type="text" placeholder="ادخل الاسم هنا" required />
+        <input type="email" placeholder="ادخل البريد الالكتروني هنا" required />
+        <input type="text" placeholder="ادخل رقم الهاتف هنا" required />
+        <button type="button" onclick="showStep(2)" class="next-btn">التالي</button>
+      </form>
+
+      <!-- Step 2 -->
+      <form id="step2" class="form-content hidden">
+        <h2>بيانات المتجر</h2>
+        <p>الرجاء إدخال بيانات متجرك لإكمال إنشاء حسابك</p>
+        <select required>
+          <option disabled selected>اختر اسم المنشأة هنا</option>
+          <option>منشأة 1</option>
+          <option>منشأة 2</option>
+        </select>
+        <input type="text" placeholder="ادخل عنوانك هنا" required />
+        <input type="text" placeholder="ادخل دومين المتجر هنا" required />
+        <button type="button" onclick="showStep(3)" class="next-btn">التالي</button>
+      </form>
+
+      <!-- Step 3 -->
+      <form id="step3" class="form-content hidden">
+        <h2>وصف المتجر</h2>
+        <p>اكتب وصفًا واضحًا لمتجرك</p>
+        <input type="text" placeholder="ادخل  بريد اضافي"  />
+         <select required>
+          <option disabled selected>اختر  اللغه</option>
+          <option>العربيه</option>
+          <option>الانجليزيه</option>
+        </select>
+        <textarea rows="5" placeholder="اكتب وصف المتجر هنا..."></textarea>
+        <button type="submit" class="next-btn">إنهاء</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showStep(step) {
+      // إخفاء كل النماذج
+      document.querySelectorAll(".form-content").forEach(f => f.classList.add("hidden"));
+
+      // إظهار النموذج المطلوب
+      document.getElementById("step" + step).classList.remove("hidden");
+
+      // تحديث حالة الأزرار
+      document.querySelectorAll(".step").forEach(btn => btn.classList.remove("active"));
+      document.querySelectorAll(".step")[step - 1].classList.add("active");
+    }
+  </script>
+</body>
+</html>

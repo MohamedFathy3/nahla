@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حسابي - نحلة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="assets//css//profile/profile.css">
+</head>
+<body>
+  
+  
+  <!-- زر القائمة للجوال -->
+  <button class="mobile-menu-btn" id="mobileMenuBtn">
+    <i class="fas fa-bars"></i>
+  </button>
+  
+  <!-- الشريط الجانبي -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>تقاضيل الحساب</h3>
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <button class="active" onclick="showSection('profile')">
+          <i class="fas fa-user"></i>
+          البروفايل
+        </button>
+      </li>
+      <li class="nav-item">
+        <button onclick="showSection('orders')">
+          <i class="fas fa-shopping-bag"></i>
+          الطلبات
+        </button>
+      </li>
+      <li class="nav-item">
+        <button onclick="showSection('packages')">
+          <i class="fas fa-box-open"></i>
+          الباقات
+        </button>
+      </li>
+        <li class="nav-item">
+        <button >
+          <i class="fas fa-box-open"></i>
+            <a href="index.html" class="btn" >الرئيسيه</a>
+        </button>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="main-content">
+    <!-- قسم البروفايل -->
+    <section id="profile" class="profile-section">
+      <div class="content-header">
+        <h2>البروفايل</h2>
+        <button class="logout-btn">تسجيل الخروج</button>
+      </div>
+      
+      <form class="profile-form">
+
+     <div class="form-groub">
+  <div class="profile-wrapper">
+    <img src="assets/images/profile.jpg" alt="الصورة الشخصية">
+  </div>
+</div>
+        <div class="form-group">
+          <label>الاسم الأول</label>
+          <input type="text" value="أحمد">
+        </div>
+        
+        <div class="form-group">
+          <label>اسم العائلة</label>
+          <input type="text" value="محمد">
+        </div>
+        
+        <div class="form-group">
+          <label>البريد الإلكتروني الأساسي</label>
+          <input type="email" value="Mohamedahmed@gmail.com">
+        </div>
+        
+        <div class="form-group">
+          <label>البريد الإلكتروني الثانوي</label>
+          <input type="email" value="Mohamed12@hotmail.com">
+        </div>
+        
+        <div class="form-group">
+          <label>اسم المنشائه</label>
+          <input type="text" value="شركه">
+        </div>
+
+          <div class="form-group">
+          <label>رقم الهاتف </label>
+          <input type="number" value="رقم الهاتف">
+        </div>
+            <div class="form-group">
+          <label> للغه المتجر </label>
+          <select name="" id="">
+            <option value="عربي">عربي</option>
+            <option value="English">English</option>
+          </select>
+        </div>
+        
+        <button type="button" class="update-btn">تحديث</button>
+      </form>
+    </section>
+
+    <!-- قسم الطلبات -->
+    <section id="orders" class="orders-section hidden">
+      <div class="content-header">
+        <h2>الطلبات</h2>
+        <button class="logout-btn">تسجيل الخروج</button>
+      </div>
+      
+      <div style="overflow-x: auto;">
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>الباقه</th>
+              <th>المتجر</th>
+              <th>الاشتراك </th>
+              <th>التاريخ</th>
+              <th>الوفت</th>
+              <th> الاجمالي</th>
+              <th>الحالة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>الاساسيه</td>
+              <td>الملابس</td>
+              <td>سنوي</td>
+              <td>2023-10-15</td>
+              <td> 7:52 pm</td>
+              <td>500$</td>
+              <td><span class="status-completed">مكتمل</span></td>
+            </tr>
+            <tr>
+              <td>الاساسيه</td>
+              <td>الملابس</td>
+              <td>سنوي</td>
+              <td>2023-10-15</td>
+              <td> 7:52 pm</td>
+              <td>500$</td>
+              <td><span class="status-pending">الانتظار</span></td>
+            </tr>
+             <tr>
+              <td>الاساسيه</td>
+              <td>الملابس</td>
+              <td>سنوي</td>
+              <td>2023-10-15</td>
+              <td> 7:52 pm</td>
+              <td>500$</td>
+              <td><span class="status-Cancelled">مكتمل</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- قسم الباقات -->
+    <section id="packages" class="packages-section hidden">
+      <div class="content-header">
+        <h2>الباقات</h2>
+        <button class="logout-btn">تسجيل الخروج</button>
+      </div>
+      
+        <div style="overflow-x: auto;">
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>الباقه</th>
+              <th>المتجر</th>
+              <th>الاشتراك </th>
+              <th> تاريخ البدايه </th>
+              <th>تاريخ الانتهاء</th>
+              <th> الاجمالي</th>
+              <th>قرار</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>الاساسيه</td>
+              <td>الملابس</td>
+              <td>سنوي</td>
+              <td>Dec30,2023</td>
+              <td>Dec30,2023</td>
+              <td>500$</td>
+              <td><a href="" class="btn"> قرار تجديد </a></td>
+            </tr>
+                <td>الاساسيه</td>
+              <td>الملابس</td>
+              <td>سنوي</td>
+              <td>Dec30,2023</td>
+              <td>Dec30,2023</td>
+              <td>500$</td>
+              <td><a href="" class="btn"> قرار تجديد </a></td>
+            </tr>
+
+                <td>الاساسيه</td>
+              <td>الملابس</td>
+              <td>سنوي</td>
+              <td>Dec30,2023</td>
+              <td>Dec30,2023</td>
+              <td>500$</td>
+              <td><a href="" class="btn"> قرار تجديد </a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // عرض/إخفاء الأقسام
+    function showSection(sectionId) {
+      document.querySelectorAll('.profile-section, .orders-section, .packages-section').forEach(section => {
+        section.classList.add('hidden');
+      });
+      
+      document.getElementById(sectionId).classList.remove('hidden');
+      
+      document.querySelectorAll('.nav-item button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      event.currentTarget.classList.add('active');
+      
+      // إغلاق القائمة الجانبية على الجوال بعد الاختيار
+      if (window.innerWidth <= 992) {
+        document.getElementById('sidebar').classList.remove('active');
+      }
+    }
+    
+    // التحكم في القائمة الجانبية للجوال
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('active');
+      
+      // تغيير الأيقونة
+      const icon = this.querySelector('i');
+      if (sidebar.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+    
+    // إغلاق القائمة عند النقر خارجها
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      
+      if (window.innerWidth <= 992 && 
+          !sidebar.contains(event.target) && 
+          event.target !== mobileBtn && 
+          !mobileBtn.contains(event.target)) {
+        sidebar.classList.remove('active');
+        const icon = mobileBtn.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+  </script>
+</body>
+</html>

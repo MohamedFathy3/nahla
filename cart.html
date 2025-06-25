@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>السلة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/cart/cart.css">
+        <link rel="stylesheet" href="assets/css/prodects.css">
+
+    <link rel="stylesheet" href="assets/css/pricing-section.css">
+      <link rel="stylesheet" href="assets/css/footer.css">
+        <link rel="stylesheet" href="assets/css/products-container.css">
+
+
+
+</head>
+<body>
+    <header id="header" ></header>
+
+    <main>
+        <div class="wizard">
+    <div class="steps">
+      <div class="step active" onclick="showStep(1)">
+        <div class="circle">1</div>
+        <div>السلة</div>
+      </div>
+      <div class="step" onclick="showStep(2)">
+        <div class="circle">2</div>
+        <div>تفاصيل الدفع</div>
+      </div>
+      <div class="step" onclick="showStep(3)">
+        <div class="circle">3</div>
+        <div>الطلب جاهز</div>
+      </div>
+    </div>
+
+
+    <div id="step1" class="content active">
+  <h2>السلة</h2>
+
+  <form id="cart-form">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+
+  <!-- تفاصيل السلة -->
+  <div class="box-section">
+    <h4>تفاصيل الباقة</h4>
+    <select id="plan" name="plan" class="custom-select">
+      <option value="166">الباقة الأساسية - 166$</option>
+      <option value="250">الباقة المتقدمة - 250$</option>
+      <option value="300">الباقة الشاملة - 300$</option>
+    </select>
+
+    <h4 style="margin-top: 20px;">التطبيق</h4>
+    <select id="app" name="app" class="custom-select">
+      <option value="400">بتطبيق - 400$</option>
+      <option value="0">بدون تطبيق - 0$</option>
+    </select>
+  </div>
+
+  <!-- الاشتراك -->
+  <div class="box-section">
+    <h4>مدة الاشتراك</h4>
+    <select id="sub" name="sub" class="custom-select">
+      <option value="190">1 سنة - 190$</option>
+      <option value="350">2 سنة - 350$</option>
+      <option value="500">3 سنة - 500$</option>
+    </select>
+  </div>
+
+</div>
+
+<hr style="margin: 20px 0;" />
+
+<!-- الإجمالي -->
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <strong>الإجمالي:</strong>
+  <strong id="total-amount">$0.00</strong>
+</div>
+
+<!-- زر الدفع -->
+<button type="button" class="btn" onclick="calculateTotal(); showStep(2)">الدفع</button>
+
+  </form>
+</div>
+
+
+<div id="step2" class="content">
+
+  <!-- ✅ ملخص السلة -->
+  <div class="cart-summary">
+    <h3>ملخص السلة</h3>
+
+    <div class="cart-item">
+      <span class="item-label">الباقة الأساسية</span>
+      <span class="item-price">166$</span>
+    </div>
+
+    <div class="cart-item">
+      <span class="item-label">اشتراك شهري</span>
+      <span class="item-price">16$</span>
+    </div>
+
+    <div class="cart-item">
+      <span class="item-label">متجر تطبيق</span>
+      <span class="item-price">400$</span>
+    </div>
+
+    <hr>
+
+    <div class="cart-total">
+      <span>الإجمالي</span>
+      <span>$96.00</span>
+    </div>
+  </div>
+
+  <!-- ✅ معلومات الدفع -->
+  <div class="payment-box" style="margin-top: 30px;">
+    <label for="transferNumber">رقم التحويل</label>
+    <input type="text" id="transferNumber" placeholder="أدخل رقم التحويل">
+
+    <div class="upload-area" onclick="document.getElementById('receiptInput').click()">
+      <span id="upload-text">ارفق صورة الإيصال</span>
+      <img id="receiptPreview" src="" alt="" style="display: none; max-width: 100%; margin-top: 10px;" />
+    </div>
+
+    <input type="file" id="receiptInput" accept="image/*" style="display: none;" onchange="previewReceipt(event)" />
+
+  </div>
+
+  <!-- ✅ زر التالي -->
+  <div style="text-align: center; margin-top: 30px;">
+    <button class="btn" onclick="showStep(3)">التالي</button>
+  </div>
+
+</div>
+
+
+    <div id="step3" class="content">
+        <div class="circle">
+            <div class="checkmark">✓</div> <!-- علامة صح -->
+        </div>
+        <h1> لقد تم اشتراكك في الباقة الأساسية بنجاح</h1>
+        <div class="subtitle"> سيتواصل معك فريق خدمة العملاء لمتابعتك فورًا وتقديم الدعم اللازم</div>
+        <button class="start-button"> العوده للرئيسيه</button>
+    </div>
+
+
+  </div>
+
+
+  <div class="products-section" id="electronics-section">
+<!-- <div class="filter-buttons">
+  <button class="filter-btn active" id="all">الكل</button>
+  <button class="filter-btn" id="مطاعم">مطاعم</button>
+  <button class="filter-btn" id="ملابس">ملابس</button>
+  <button class="filter-btn" id="الكترونيات">الكترونيات</button>
+</div>
+ -->
+
+<div class="products-container">
+  <div class="products-slider">
+    <button class="prev-btn">‹</button>
+
+    <div class="products-wrapper">
+      <div class="product-card active" data-category="الكترونيات">
+        <img src="assets/images/004.png" alt="هاتف ذكي" class="product-image">
+        <button class="add-to-cart" data-id="1">إضافة إلى السلة</button>
+      </div>
+      <div class="product-card" data-category="الكترونيات">
+        <img src="assets/images/001.png" alt="لابتوب" class="product-image">
+        <button class="add-to-cart" data-id="2">إضافة إلى السلة</button>
+      </div>
+      <div class="product-card" data-category="الكترونيات">
+        <img src="assets/images/iPhoneX-Mockup.png" alt="سماعات" class="product-image">
+        <button class="add-to-cart" data-id="3">إضافة إلى السلة</button>
+      </div>
+      <div class="product-card" data-category="الكترونيات">
+        <img src="assets/images/000.png" alt="ساعة ذكية" class="product-image">
+        <button class="add-to-cart" data-id="4">إضافة إلى السلة</button>
+      </div>
+      <div class="product-card" data-category="مطاعم">
+        <img src="assets/images/001.png" alt="مطعم ايطالي" class="product-image">
+        <button class="add-to-cart" data-id="5">إضافة إلى السلة</button>
+      </div>
+      <div class="product-card" data-category="ملابس">
+        <img src="assets/images/003.png" alt="تيشيرت" class="product-image">
+        <button class="add-to-cart" data-id="6">إضافة إلى السلة</button>
+      </div>
+      <div class="product-card" data-category="مطاعم">
+        <img src="assets/images/000.png" alt="مطعم شرقي" class="product-image">
+        <button class="add-to-cart" data-id="7">إضافة إلى السلة</button>
+      </div>
+      <div class="product-card" data-category="ملابس">
+        <img src="assets/images/004.png" alt="بنطلون" class="product-image">
+        <button class="add-to-cart" data-id="8">إضافة إلى السلة</button>
+      </div>
+    </div>
+
+    <button class="next-btn">›</button>
+  </div>
+</div>
+
+
+
+        <!-- قسم العروض الترويجية -->
+  <section class="pricing-section">
+    <h2 class="section-title">أسعار الباقات التي تناسبك</h2>
+    <p class="section-subtitle">تتضمن كل باقة مجموعة من المميزات الفريدة لتلبية احتياجات متنوعة للعملاء</p>
+    <div class="plans" id="plans-container">
+      <!-- سيتم توليد الباقات هنا عبر JavaScript -->
+    </div>
+  </section>
+  <!-- قسم العروض الترويجية -->
+
+    </main>
+  
+      <div id="footer"></div>
+
+  <script>
+    function showStep(step) {
+      // إظهار القسم المختار
+      document.querySelectorAll('.content').forEach(div => div.classList.remove('active'));
+      document.getElementById('step' + step).classList.add('active');
+
+      // تفعيل الزر
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.step')[step - 1].classList.add('active');
+    }
+
+
+
+    function calculateTotal() {
+  const plan = parseFloat(document.getElementById('plan').value) || 0;
+  const app = parseFloat(document.getElementById('app').value) || 0;
+  const sub = parseFloat(document.getElementById('sub').value) || 0;
+
+  const total = plan + app + sub;
+  document.getElementById('total-amount').textContent = `$${total.toFixed(2)}`;
+}
+
+document.querySelectorAll('#plan, #app, #sub').forEach(select => {
+  select.addEventListener('change', calculateTotal);
+});
+
+    
+  </script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/pricing-section.js"></script>
+    <script src="assets/js/products-container.js" ></script>
+    <script src="assets/js/footer.js"></script>
+
+</body>
+</html>
